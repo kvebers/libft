@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:21:09 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/01 10:36:58 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/02 16:31:09 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	words = ft_get_words(s, c, 0, ft_strlen((char *)s));
-	dest = malloc(((words + 1) * sizeof(char *)));
+	dest = ft_calloc((words + 1), sizeof(char*));
 	if (dest == NULL)
 		return (NULL);
 	cnt = 0;
@@ -85,6 +85,5 @@ char	**ft_split(char const *s, char c)
 		*(dest + cnt) = ft_create_word(s, pos_x, pos_y);
 		cnt++;
 	}
-	*(dest + cnt) = NULL;
 	return (dest);
 }
