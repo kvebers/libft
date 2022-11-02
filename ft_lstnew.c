@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:22:11 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/01 18:34:35 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/02 16:20:10 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstnew(void *content)
 	t_list	*ptr;
 
 	ptr = malloc(sizeof(t_list));
-	if (ptr == 0)
+	if (ptr == NULL)
 		return (NULL);
 	ptr -> content = content;
 	ptr -> next = NULL;
