@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:15:07 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/01 16:26:51 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/02 16:54:32 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_tolower(int C);
 char	*ft_strchr(const char *str, int c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strrchr(const char *s, int c);
-int		strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t t);
