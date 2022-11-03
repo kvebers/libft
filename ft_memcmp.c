@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:44:33 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/01 17:30:00 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/02 17:14:28 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 			return ((unsigned char) *(ptr + c) - (unsigned char )*(ptr1 + c));
 		c++;
 	}
-	return (0);
+	return ((unsigned char) *(ptr + c) - (unsigned char )*(ptr1 + c));
 }
