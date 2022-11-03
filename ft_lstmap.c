@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:31:21 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/01 19:15:21 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/02 21:28:49 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		ft_lstadd_back(&out, ptr);
-		free (ptr);
 		lst = lst -> next;
 	}
 	return (out);
