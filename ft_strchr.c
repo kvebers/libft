@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:56:14 by kvebers           #+#    #+#             */
-/*   Updated: 2022/10/22 11:23:47 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/02 23:17:25 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	char	*ptr;
 
 	ptr = (char *)s;
+	c = c % 256;
 	while (*ptr != c && *ptr != '\0')
 		ptr++;
 	if (*ptr == c)
