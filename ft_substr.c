@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 11:46:06 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/03 00:48:44 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/03 01:23:10 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	cnt = 0;
 	if ((size_t)ft_strlen((char *)s) < len)
-	 	sub = ft_calloc((size_t)ft_strlen((char *)s) + 1, sizeof(char));
+		sub = ft_calloc((size_t)ft_strlen((char *)s) + 1, sizeof(char));
 	else
 		sub = ft_calloc(len + 1, sizeof(char));
 	if (sub == NULL || s == NULL)
