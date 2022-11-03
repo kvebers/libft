@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:23:53 by kvebers           #+#    #+#             */
-/*   Updated: 2022/10/20 16:16:25 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/02 23:03:34 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	counter;
 	char	*ptr;
+	int		cnt;
 
+	cnt = 0;
 	ptr = (char *)s;
-	counter = 0;
-	while (*(ptr + counter) != '\0' && counter < n)
+	c = c % 256;
+	while (n != 0)
 	{
-		if (*(ptr + counter) == c)
-			return (ptr + counter);
-		counter++;
+		if (*(ptr + cnt) == c)
+			return (ptr + cnt);
+		cnt++;
+		n--;
 	}
-	if (*(ptr + counter) == c)
-		return (ptr + counter);
 	return (NULL);
 }
