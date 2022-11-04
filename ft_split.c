@@ -6,22 +6,17 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:21:09 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/02 16:37:37 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/04 10:54:31 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_yeet_blanks(char const *s, char c, int start_pos, int len)
+int	ft_yeet_blanks(char const *s, char c, int start_pos, int mode)
 {
-	while (*(s + start_pos) == c && start_pos != len)
+	while (*(s + start_pos) == c && *(s + start_pos) != '\0' && mode == 0)
 		start_pos++;
-	return (start_pos);
-}
-
-int	ft_getpos(char const *s, char c, int start_pos, int len)
-{
-	while (*(s + start_pos) != c && start_pos < len)
+	while (*(s + start_pos) != c && *(s + start_pos) != '\0' && mode == 1)
 		start_pos++;
 	return (start_pos);
 }
@@ -34,9 +29,9 @@ int	ft_get_words(char const *s, char c, int start_pos, int len)
 	words = 0;
 	while (start_pos != len)
 	{
-		start_pos = ft_yeet_blanks(s, c, start_pos, len);
+		start_pos = ft_yeet_blanks(s, c, start_pos, 0);
 		temp = start_pos;
-		start_pos = ft_getpos(s, c, start_pos, len);
+		start_pos = ft_yeet_blanks(s, c, start_pos, 1);
 		if (start_pos == temp)
 			return (words);
 		words++;
@@ -62,6 +57,20 @@ char	*ft_create_word(const char *s, int pos_x, int pos_y)
 	return (word);
 }
 
+char	**ft_free(char **ptr)
+{
+	int	cnt;
+
+	cnt = 0;
+	while (*(ptr + cnt) != NULL)
+	{
+		free(*(ptr + cnt));
+		cnt++;
+	}
+	free(ptr);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		words;
@@ -80,8 +89,10 @@ char	**ft_split(char const *s, char c)
 	pos_y = 0;
 	while (cnt < words)
 	{
-		pos_x = ft_yeet_blanks(s, c, pos_y, ft_strlen((char *)s));
-		pos_y = ft_getpos(s, c, pos_x, ft_strlen((char *)s));
+		pos_x = ft_yeet_blanks(s, c, pos_y, 0);
+		pos_y = ft_yeet_blanks(s, c, pos_x, 1);
+		if (ft_create_word(s, pos_x, pos_y) == NULL)
+			return (ft_free(dest));
 		*(dest + cnt) = ft_create_word(s, pos_x, pos_y);
 		cnt++;
 	}
