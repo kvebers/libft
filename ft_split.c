@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:21:09 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/04 10:54:31 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/11/04 11:42:55 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ char	**ft_free(char **ptr)
 char	**ft_split(char const *s, char c)
 {
 	int		words;
-	int		pos_x;
-	int		pos_y;
+	int		pos;
 	int		cnt;
 	char	**dest;
+	char	*temp;
 
 	if (s == NULL)
 		return (NULL);
@@ -86,14 +86,15 @@ char	**ft_split(char const *s, char c)
 	if (dest == NULL)
 		return (NULL);
 	cnt = 0;
-	pos_y = 0;
+	pos = 0;
 	while (cnt < words)
 	{
-		pos_x = ft_yeet_blanks(s, c, pos_y, 0);
-		pos_y = ft_yeet_blanks(s, c, pos_x, 1);
-		if (ft_create_word(s, pos_x, pos_y) == NULL)
+		pos = ft_yeet_blanks(s, c, pos, 0);
+		temp = ft_create_word(s, pos, ft_yeet_blanks(s, c, pos, 1));
+		pos = ft_yeet_blanks(s, c, pos, 1);
+		if (temp == NULL)
 			return (ft_free(dest));
-		*(dest + cnt) = ft_create_word(s, pos_x, pos_y);
+		*(dest + cnt) = temp;
 		cnt++;
 	}
 	return (dest);
