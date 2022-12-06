@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:15:07 by kvebers           #+#    #+#             */
-/*   Updated: 2022/12/06 11:49:42 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/12/06 12:38:45 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 
 typedef struct s_list
 {
@@ -72,4 +78,8 @@ int		ft_puthex(unsigned long adress, int up_low);
 int		ft_putdeca(int C);
 int		ft_putunsigned(unsigned long C);
 int		ft_putptr(unsigned long C);
+char	*ft_strchr2(const char *s, int c);
+char	*get_next_line(int fd);
+char	*ft_strjoin2(char *temp, char *buffer, size_t cnt1, size_t cnt2);
+
 #endif
