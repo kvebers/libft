@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:15:07 by kvebers           #+#    #+#             */
-/*   Updated: 2022/11/02 21:50:08 by kvebers          ###   ########.fr       */
+/*   Updated: 2022/12/06 11:49:42 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -64,5 +65,11 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstadd_front(t_list **lst, t_list *new);
-
+int		ft_printf(const char *str, ...);
+int		ft_putstr(const char *str);
+int		ft_putchar(int C);
+int		ft_puthex(unsigned long adress, int up_low);
+int		ft_putdeca(int C);
+int		ft_putunsigned(unsigned long C);
+int		ft_putptr(unsigned long C);
 #endif
