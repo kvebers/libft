@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:15:07 by kvebers           #+#    #+#             */
-/*   Updated: 2022/12/06 12:38:45 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/01/05 17:14:35 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
 
 typedef struct s_list
 {
